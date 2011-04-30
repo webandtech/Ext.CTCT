@@ -241,7 +241,7 @@ Ext.CTCT = {
                     failurestate.request.options.callbackFn(eventsList);
                 }
             });
-            //timeout after 30 seconds (sort of hack to guard against http auth hanging)
+            //timeout after 15 seconds (sort of hack to guard against http auth hanging which happens in PhoneGap apps)
             var failureOnTimeout = function(callback) {
                 if (Ext.Ajax.isLoading(thisRequest) == true) {
                     var eventsList = {
@@ -374,7 +374,7 @@ Ext.CTCT = {
                     failurestate.request.options.callbackFn(registrantList);
                 }
             });
-            //timeout after 30 seconds (sort of hack to guard against http auth hanging)
+            //timeout after 15 seconds (sort of hack to guard against http auth hanging which happens in PhoneGap apps)
             var failureOnTimeout = function(callback) {
                 if (Ext.Ajax.isLoading(thisRequest) == true) {
                     var registrantList = {
@@ -444,7 +444,7 @@ Ext.CTCT = {
                     failurestate.request.options.callbackFn(responseStatus);
                 }
             });
-            //timeout after 30 seconds (sort of hack to guard against http auth hanging)
+            //timeout after 15 seconds (sort of hack to guard against http auth hanging which happens in PhoneGap apps)
             var failureOnTimeout = function(callback) {
                 if (Ext.Ajax.isLoading(thisRequest) == true) {
                     var responseStatus = {
