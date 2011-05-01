@@ -241,17 +241,17 @@ Ext.CTCT = {
                     failurestate.request.options.callbackFn(eventsList);
                 }
             });
-            //timeout after 15 seconds (sort of hack to guard against http auth hanging which happens in PhoneGap apps)
+            //timeout after 30 seconds (sort of hack to guard against http auth hanging)
             var failureOnTimeout = function(callback) {
                 if (Ext.Ajax.isLoading(thisRequest) == true) {
                     var eventsList = {
                         success: false,
-                        httpStatusCode: 401,
+                        httpStatusCode: 408,
                         events: [],
                         morePages: false
                     }
                     callback(eventsList);
-                    Ext.Ajax.abort(thisRequest);
+                    thisRequest.xhr.abort();
                 }
             }
             setTimeout(function() {failureOnTimeout(callback);},15000);
@@ -374,17 +374,17 @@ Ext.CTCT = {
                     failurestate.request.options.callbackFn(registrantList);
                 }
             });
-            //timeout after 15 seconds (sort of hack to guard against http auth hanging which happens in PhoneGap apps)
+            //timeout after 30 seconds (sort of hack to guard against http auth hanging)
             var failureOnTimeout = function(callback) {
                 if (Ext.Ajax.isLoading(thisRequest) == true) {
                     var registrantList = {
                         success: false,
-                        httpStatusCode: 401,
+                        httpStatusCode: 408,
                         registrants: [],
                         morePages: false
                     }
                     callback(registrantList);
-                    Ext.Ajax.abort(thisRequest);
+                    thisRequest.xhr.abort();
                 }
             }
             setTimeout(function() {failureOnTimeout(callback);},15000);
@@ -444,15 +444,15 @@ Ext.CTCT = {
                     failurestate.request.options.callbackFn(responseStatus);
                 }
             });
-            //timeout after 15 seconds (sort of hack to guard against http auth hanging which happens in PhoneGap apps)
+            //timeout after 30 seconds (sort of hack to guard against http auth hanging)
             var failureOnTimeout = function(callback) {
                 if (Ext.Ajax.isLoading(thisRequest) == true) {
                     var responseStatus = {
                         success: false,
-                        httpStatusCode: 401
+                        httpStatusCode: 408
                     }
                     callback(responseStatus);
-                    Ext.Ajax.abort(thisRequest);
+                    thisRequest.xhr.abort();
                 }
             }
             setTimeout(function() {failureOnTimeout(callback);},15000);
